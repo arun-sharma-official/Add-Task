@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
  async function connectdb(){
-    await mongoose.connect('mongodb+srv://codechitrakar_db_user:4ab9BxSAT3glTsgj@todolist.sphxolx.mongodb.net')
+    await mongoose.connect(process.env.mongouri)
     console.log("DB Connected!!")
 }
 
