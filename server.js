@@ -11,9 +11,13 @@ app.set('view engine','ejs');
 
 connectdb();
 
-app.get('/', async function(req,res){
-    res.render('index');
-})
+// app.get('/', async function(req,res){
+//     res.render('index');
+// })
+
+app.get('/', function(req, res) {
+    res.send("Hello Render!");
+});
 
 app.post('/add',async function(req,res){
    await  course.create({
