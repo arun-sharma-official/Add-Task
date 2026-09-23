@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+     <h1>See all the List of Data</h1>
+     <a href="/">Add Data</a>
+     <table border="1" cellpadding="8">
+        <tr>
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        
+        </tr>
+        <% courses.forEach(function(s,i) {%>
+            <tr>
+                <td><%= i +1 %></td>
+                <td><%= s.name  %></td>
+                <td><%= s.course  %></td>
+                <td><a href="/edit/<%= s._id%>">Edit</a></td>
+                <td>
+                    <form action="/delete/<%= s._id%>" method="POST">
+                        <button type="submit" onclick=" return confirm('pakka na ?')">Delete</button>    
+                    </form>
+                    
+            </tr>
+        <% })%>
+     </table>
+</body>
+</html>
