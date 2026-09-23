@@ -11,7 +11,7 @@ app.set('view engine','ejs');
 
 connectdb();
 
-app.get('/', async function(req,res){
+app.get('/add', async function(req,res){
     res.render('index');
 })
 
@@ -23,11 +23,11 @@ app.post('/add',async function(req,res){
         course:req.body.course
     });
     console.log("Created Succesfully");
-    res.redirect('/all')
+    res.redirect('/')
 
 })
 
-app.get('/all' ,async function(req,res){
+app.get('/' ,async function(req,res){
     const courses = await course.find();
     res.render('list',{courses});
 })
@@ -46,13 +46,13 @@ app.post('/update/:id', async function(req,res){
     name: req.body.name,
     course:req.body.course
    });
-   res.redirect('/all')
+   res.redirect('/')
 })
 
 app.post('/delete/:id', async function(req,res){
     await course.findByIdAndDelete(req.params.id);
     console.log("Deleted Sucessfully ");
-    res.redirect('/all');
+    res.redirect('/');
 })
 
 
