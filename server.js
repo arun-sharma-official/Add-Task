@@ -17,6 +17,7 @@ connectdb();
 
 app.get('/', function(req, res) {
     res.send("Hello Render!");
+    
 });
 
 app.post('/add',async function(req,res){
